@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reaper</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<header>
+  <canvas id="logo" width="32" height="32"></canvas>
+  <h1>REAPER</h1>
+  <span id="toast" role="status"></span>
+  <button id="gear" class="icon" title="Settings" aria-label="Settings">⚙</button>
+</header>
+
+<main id="main">
+  <div id="hostwarn" class="warn" hidden></div>
+
+  <section id="grab">
+    <div id="tabtitle" class="tabtitle"></div>
+    <div class="modes">
+      <button class="mode audio" data-mode="audio"><b>Audio</b><small id="lblAudio"></small></button>
+      <button class="mode video" data-mode="video"><b>Video</b><small id="lblVideo"></small></button>
+      <button class="mode both" data-mode="both"><b>Both</b><small id="lblBoth"></small></button>
+    </div>
+    <div id="alltabs" class="alltabs" hidden>
+      <span id="alltabsLabel"></span>
+      <button class="mini audio" data-all="audio">Audio</button>
+      <button class="mini video" data-all="video">Video</button>
+      <button class="mini both" data-all="both">Both</button>
+    </div>
+  </section>
+
+  <section id="queueBox">
+    <div class="qhead">
+      <span id="qtitle">Queue</span>
+      <button id="clearDone" class="link" hidden>Clear finished</button>
+    </div>
+    <ul id="queue"></ul>
+    <div id="empty" class="empty">Nothing queued yet. Open a video or track and pick a type above.</div>
+  </section>
+
+  <footer>
+    <button id="start" class="primary">Start</button>
+    <button id="folder" class="ghost" title="Open download folder">Open folder</button>
+  </footer>
+</main>
+
+<main id="settings" hidden>
+  <div class="shead"><button id="back" class="link">← Back</button><span id="saved">Saved</span></div>
+
+  <fieldset>
+    <legend>Download folder</legend>
+    <div class="row">
+      <input id="outDir" type="text" spellcheck="false" placeholder="Downloads">
+      <button id="browse" class="ghost">Browse…</button>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Video <em>used by Video and Both</em></legend>
+    <label>Preset<select id="vPreset"></select></label>
+    <div class="grid2">
+      <label>Codec<select id="vCodec"></select></label>
+      <label>Container<select id="vContainer"></select></label>
+      <label>Resolution (max)<select id="vRes"></select></label>
+      <label>Bitrate<select id="vBitrate"></select></label>
+    </div>
+    <p id="vHint" class="hint"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Audio <em>used by Audio and Both</em></legend>
+    <label>Preset<select id="aPreset"></select></label>
+    <div class="grid2">
+      <label>Codec<select id="aCodec"></select></label>
+      <label>Bitrate<select id="aBitrate"></select></label>
+    </div>
+    <p id="aHint" class="hint"></p>
+  </fieldset>
+
+  <fieldset>
+    <legend>Behaviour</legend>
+    <label class="inline">Downloads at once
+      <select id="concurrency"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+    <label class="check"><input id="autoStart" type="checkbox"> Start downloading as soon as I queue something</label>
+    <label class="check"><input id="gpu" type="checkbox"> Use my graphics card for H.264 / H.265 conversions (faster)</label>
+    <label class="check"><input id="cookies" type="checkbox"> Use my Firefox login for age-restricted or members-only videos</label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Helper app</legend>
+    <div class="row"><span id="hostInfo" class="hostinfo"></span><button id="update" class="ghost">Update yt-dlp</button></div>
+  </fieldset>
+</main>
+
+<script src="sprite.js"></script>
+<script src="presets.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>

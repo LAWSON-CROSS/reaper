@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Reaper",
+  "version": "1.1.0",
+  "description": "Queue YouTube and SoundCloud tabs, then download them all at once as audio, video or both. Requires the free Reaper helper app.",
+  "homepage_url": "https://github.com/LAWSON-CROSS/reaper",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "reaper@localhost",
+      "strict_min_version": "115.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  },
+  "icons": { "16": "icons/scythe-16.png", "32": "icons/scythe-32.png", "48": "icons/scythe-48.png", "96": "icons/scythe-96.png", "128": "icons/scythe-128.png" },
+  "permissions": ["nativeMessaging", "storage", "tabs", "notifications"],
+  "background": { "scripts": ["sprite.js", "presets.js", "background.js"] },
+  "browser_action": {
+    "default_icon": { "16": "icons/scythe-16.png", "32": "icons/scythe-32.png" },
+    "default_title": "Reaper",
+    "default_popup": "popup.html"
+  },
+  "options_ui": { "page": "popup.html#settings", "open_in_tab": true }
+}
