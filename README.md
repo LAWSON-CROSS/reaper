@@ -37,7 +37,7 @@ The helper installs into your user folder, downloads yt-dlp, ffmpeg and deno (ab
 
 ### 2. The extension
 
-Install Reaper from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/reaper/), then pin the scythe to your toolbar.
+Install Reaper from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/reaper-ripper/), then pin the scythe to your toolbar.
 
 ## Use
 
